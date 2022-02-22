@@ -1,0 +1,251 @@
+*{
+    margin: 0px;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.main-div{
+    width: 100vw;
+    height: 100vh;
+    /* background-image: linear-gradient(to bottom right,yellow,green); */
+    background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url("../Faded.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+}
+.music-cont{
+    width: 35rem; /* 350px  1 rem -> 10px */
+    height: 53rem;
+    background-color: rgba(25, 195, 225, 0.18);
+    border-radius: 2rem;
+    
+    text-align: center;
+    padding: 3rem;
+    border: 2px ridge thistle;
+    backdrop-filter: blur(7px);
+    cursor: pointer;
+}
+.music-cont:hover{
+    transform:translate(-15px);
+    box-shadow: 0.7rem 0.7rem .6rem 0.4rem rgba(2, 2, 2, 0.9);
+    transition: all 0.5s ease-in-out;
+}
+.music-cont:after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(75deg,transparent 50%,rgba(225,225,225,0.03) 58%,
+           rgba(225,225,225,0.16) 67%,
+           transparent 68%
+    );
+    background-size: 200% 100%;
+    background-position: 168% 0;
+    transition: 0.7s;
+    pointer-events: none;
+}
+.music-cont:hover:after{
+    background-position: -20% 0;
+}
+.music-cont #name{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+    color: whitesmoke;
+    margin: 2rem 0rem 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+    max-height: 3rem ;
+    overflow: hidden;
+  
+}
+.music-cont #artist{
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    color: #c0bdbd;
+    margin-bottom: 4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-shadow: 0 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  
+}
+.img-cont{
+    width: 22rem;
+    height: 22rem;
+    margin: auto;
+    
+}
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0rem 0rem 1rem 1.3rem rgba(109, 163, 224, 0.993);
+}
+audio{
+    display: none;
+}
+.duration{
+    position: relative;
+}
+.duration .bar{
+    position: absolute;
+    z-index: 1;
+    left: 0;top:20px;
+    width: 100%;
+    height: 0.4rem;
+    background-color: rgba(236, 240, 45, 0.993);
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+.duration .bar .fill{
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color:rgb(218, 57, 57);
+}
+.duration .dbar{
+    position: relative;
+    z-index: 2;
+    -webkit-appearance: none;
+    margin-top: 2rem;
+    width: 100%;
+    height: 0.4rem;
+    border-radius: 5px;
+    outline: none;
+    background-color:transparent;
+    cursor: pointer;
+}
+.dbar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 10px;height: 10px;
+    background-color: rgb(255, 20, 20);
+    border-radius: 70%;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 0 0 rgba(218, 37, 37, 0.904);
+    transition:  .1s ease-in-out;
+
+}
+.dbar::-webkit-slider-thumb:hover{
+    box-shadow: 0 0 0 3px rgba(253, 151, 151, 0.904);
+
+}
+.dbar:active::-webkit-slider-thumb{
+    box-shadow: 0 0 0 5px rgba(253, 151, 151, 0.904);
+
+}
+.music-controls{
+      width: 20rem;
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      margin-top: 2rem;
+      align-items: center;
+}
+.music-controls .fas{
+    color:whitesmoke;
+    font-size: 2rem;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0,0,0,0.5));
+    
+}
+.volume-control .fas{
+    color:whitesmoke;
+    font-size: 2rem;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0,0,0,0.5));
+    
+}
+.music-controls .main-bt{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgb(49, 50, 54);
+    border: 1px double rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+.music-controls .fas:hover{
+    color: #1ae4a4;
+}
+.volume-control .fas:hover{
+    color: #1ae4a4;
+}
+.music-controls .fa-play:hover{
+    color: rgb(230, 25, 25);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(224, 25, 25) ;
+    box-shadow: 0.5rem 1rem 1rem 0.2rem rgba(0, 0, 0, 0.4); 
+}
+.volume-control{
+    width: 25rem;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+.volume-control .vol{
+    width: 2rem;
+    height: 2rem;
+    color: #fffb13;
+    display: flex;
+    justify-content:start;
+    align-items:center;
+    font-size: 1.4rem;
+}
+.vbar{
+    -webkit-appearance: none;
+    outline: none;
+    width: 50%;
+    height: 0.3rem;
+    position:absolute;
+    left: 7rem;
+    background-color: rgb(15, 162, 199);
+}
+/* both slider*/
+input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    outline: none;
+    background-color: red;
+    width: 10px;height: 10px;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20%;
+}
+#dShow{
+    color: rgb(238, 255, 0);
+    font-size: 1.39rem;
+    font-family:serif;
+    font-weight:bold;
+}
+
+.volume-control #vShow{
+    right: 1rem;
+    position: relative;
+    color: rgb(231, 247, 10);
+    font-weight:bold;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+
+}
+.anime{
+    animation: rotate 6s linear  infinite;
+}
+@keyframes rotate{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
